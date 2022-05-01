@@ -2,28 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class InformLevelPassed : MonoBehaviour
 {
     [SerializeField] private BallJumper _ball;
     [SerializeField] private TMP_Text _message;
 
-    private void Awake()
+    /*private void Awake()
     {
         _message.text = "";
-    }
+    }*/
 
     private void OnEnable()
     {
-        _ball.LevelPassed += WriteLevelPassed;
+        Debug.Log("Подписались");
+        _ball.LevelPassed += OnLevelPassed;
     }
 
     private void OnDisable()
     {
-        _ball.LevelPassed -= WriteLevelPassed;
+        _ball.LevelPassed -= OnLevelPassed;
     }
 
-    public void WriteLevelPassed()
+    private void OnLevelPassed()
     {
         Debug.Log("Finish");
         _message.text = "Вы прошли уровень!";

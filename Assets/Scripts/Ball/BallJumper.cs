@@ -26,6 +26,7 @@ public class BallJumper : MonoBehaviour
         }
         else if(collision.gameObject.TryGetComponent(out FinishPlatform finishPlatform))
         {
+            Debug.Log("Мяч коснулся финиша");
             LevelPassed?.Invoke();
         }
     }
