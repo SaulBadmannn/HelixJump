@@ -12,22 +12,21 @@ public class TowerBuilder : MonoBehaviour
     [SerializeField] private FinishPlatform _finishPlatform;
 
     private float _startAndFinishAdditionalScale = 0.5f;
+    private Transform _spawnPointBall;
 
     public float BeamScaleY => _levelCount / 2f + _startAndFinishAdditionalScale + _additionalScale / 2f;
 
-    private void Awake()
+    public void BuildTower(Transform towerPoint)
     {
-        Build();
-    }
-    private void Build()
-    {
-        GameObject beam = Instantiate(_beam, transform);
+        GameObject beam = Instantiate(_beam, towerPoint);
         beam.transform.localScale = new Vector3(1, BeamScaleY, 1);
 
         Vector3 spawnPosition = beam.transform.position;
         spawnPosition.y += beam.transform.localScale.y - _additionalScale;
 
-        SpawnPlatform(_spawnPlatform, ref spawnPosition, beam.transform); 
+        SpawnPlatform spawnPlatform = SpawnPlatform(_spawnPlatform, ref spawnPosition, beam.transform);
+
+        _spawnPointBall = spawnPlatform.GetSpawnPoint();
 
         for (int i = 0; i < _levelCount; i++)
         {
@@ -37,9 +36,32 @@ public class TowerBuilder : MonoBehaviour
         SpawnPlatform(_finishPlatform, ref spawnPosition, beam.transform);
     }
 
-    private void SpawnPlatform(Platform platform, ref Vector3 spawnPosition, Transform parent)
+    private Platform SpawnPlatform(Platform platform, ref Vector3 spawnPosition, Transform parent)
     {
-        Instantiate(platform, spawnPosition, Quaternion.Euler(0, Random.Range(0, 360), 0), parent);
+        Platform newPlatform = Instantiate(platform, spawnPosition, Quaternion.Euler(0, Random.Range(0, 360), 0), parent);
         spawnPosition.y -= 1;
+
+        return newPlatform;
+    }
+
+    private SpawnPlatform SpawnPlatform(SpawnPlatform platform, ref Vector3 spawnPosition, Transform parent)
+    {
+        SpawnPlatform newPlatform = Instantiate(platform, spawnPosition, Quaternion.Euler(0, Random.Range(0, 360), 0), parent);
+        spawnPosition.y -= 1;
+
+        return newPlatform;
+    }
+
+    private FinishPlatform SpawnPlatform(FinishPlatform platform, ref Vector3 spawnPosition, Transform parent)
+    {
+        FinishPlatform newPlatform = Instantiate(platform, spawnPosition, Quaternion.Euler(0, Random.Range(0, 360), 0), parent);
+        spawnPosition.y -= 1;
+
+        return newPlatform;
+    }
+
+    public Transform GetSpawnPointBall()
+    {
+        return _spawnPointBall;
     }
 }

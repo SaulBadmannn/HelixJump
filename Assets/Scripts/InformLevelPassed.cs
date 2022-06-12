@@ -6,8 +6,11 @@ using UnityEngine.Events;
 
 public class InformLevelPassed : MonoBehaviour
 {
-    private Ball _ball;
     [SerializeField] private TMP_Text _message;
+    [SerializeField] private LevelBuilder _levelBuilder;
+    
+    private Ball _ball;
+    
 
     private void Awake()
     {
@@ -16,7 +19,7 @@ public class InformLevelPassed : MonoBehaviour
 
     private void Start()
     {
-        _ball = FindObjectOfType<Ball>();
+        _ball = _levelBuilder.GetBall();
         Debug.Log("Подписались");
         _ball.LevelPassed += OnLevelPassed;
     }

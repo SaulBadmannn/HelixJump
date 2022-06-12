@@ -65,14 +65,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Ball\Ball.cs" />
+    <Compile Include="Assets\Scripts\Ball\BallBuilder.cs" />
     <Compile Include="Assets\Scripts\Ball\BallJumper.cs" />
     <Compile Include="Assets\Scripts\Ball\BallTracking.cs" />
     <Compile Include="Assets\Scripts\InformLevelPassed.cs" />
+    <Compile Include="Assets\Scripts\Level.cs" />
+    <Compile Include="Assets\Scripts\LevelBuilder.cs" />
     <Compile Include="Assets\Scripts\Platforms\FinishPlatform.cs" />
     <Compile Include="Assets\Scripts\Platforms\Platform.cs" />
     <Compile Include="Assets\Scripts\Platforms\PlatformSegment.cs" />
     <Compile Include="Assets\Scripts\Platforms\SpawnPlatform.cs" />
     <Compile Include="Assets\Scripts\Tower\Beam.cs" />
+    <Compile Include="Assets\Scripts\Tower\Tower.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerBuilder.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerRotator.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

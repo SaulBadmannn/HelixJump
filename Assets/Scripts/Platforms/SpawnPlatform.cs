@@ -7,8 +7,8 @@ public class SpawnPlatform : Platform
     [SerializeField] private Ball _ball;
     [SerializeField] private Transform _spawnPoint;
 
-    private void Awake()
+    public Transform GetSpawnPoint()
     {
-        Instantiate(_ball, _spawnPoint.position, Quaternion.identity); 
+        return _spawnPoint;
     }
 }
