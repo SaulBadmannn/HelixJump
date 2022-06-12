@@ -581,7 +581,7 @@ MonoBehaviour:
   - {fileID: 5414311671439615706, guid: 2a914dc7e381b6046af88ea71c9a5f67, type: 3}
   - {fileID: 6933811747659346107, guid: 6bbabd5fe6807ca4dbab67f38c5753b5, type: 3}
   - {fileID: 7816213795755406301, guid: 4827d975e92126a4481be10b496ad008, type: 3}
-  _finishPlatform: {fileID: 3614505669497872772, guid: 536a5a92fd1cdbf45bbcc547660bbaf2,
+  _templateFinishPlatform: {fileID: 3614505669497872772, guid: 536a5a92fd1cdbf45bbcc547660bbaf2,
     type: 3}
 --- !u!114 &944382504
 MonoBehaviour:

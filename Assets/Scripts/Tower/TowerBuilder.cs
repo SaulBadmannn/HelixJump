@@ -9,10 +9,11 @@ public class TowerBuilder : MonoBehaviour
     [SerializeField] private GameObject _beam;
     [SerializeField] private SpawnPlatform _spawnPlatform;
     [SerializeField] private Platform[] _platforms;
-    [SerializeField] private FinishPlatform _finishPlatform;
+    [SerializeField] private FinishPlatform _templateFinishPlatform;
 
     private float _startAndFinishAdditionalScale = 0.5f;
     private Transform _spawnPointBall;
+    private FinishPlatform _finishPlatform;
 
     public float BeamScaleY => _levelCount / 2f + _startAndFinishAdditionalScale + _additionalScale / 2f;
 
@@ -33,7 +34,7 @@ public class TowerBuilder : MonoBehaviour
             SpawnPlatform(_platforms[Random.Range(0, _platforms.Length)], ref spawnPosition, beam.transform);
         }
 
-        SpawnPlatform(_finishPlatform, ref spawnPosition, beam.transform);
+        _finishPlatform = SpawnPlatform(_templateFinishPlatform, ref spawnPosition, beam.transform);
     }
 
     private Platform SpawnPlatform(Platform platform, ref Vector3 spawnPosition, Transform parent)
@@ -63,5 +64,10 @@ public class TowerBuilder : MonoBehaviour
     public Transform GetSpawnPointBall()
     {
         return _spawnPointBall;
+    }
+
+    public FinishPlatform GetFinishPlatform()
+    {
+        return _finishPlatform;
     }
 }

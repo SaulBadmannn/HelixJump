@@ -10,18 +10,21 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField] private BallBuilder _ballBuilder;
 
     private Transform _spawnPointBall;
-    private Ball _ball;
+    private FinishPlatform _finishPlatform;
 
     private void Awake()
     {
         _towerBuilder.BuildTower(_towerPoint);
+
         _spawnPointBall = _towerBuilder.GetSpawnPointBall();
-        _ball = _ballBuilder.BuildBall(_spawnPointBall);
+        _finishPlatform = _towerBuilder.GetFinishPlatform();
+
+        _ballBuilder.BuildBall(_spawnPointBall);
     }
 
-    public Ball GetBall()
+    public FinishPlatform GetFinishPlatform()
     {
-        return _ball;
+        return _finishPlatform;
     }  
 
 }

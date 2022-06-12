@@ -9,7 +9,7 @@ public class InformLevelPassed : MonoBehaviour
     [SerializeField] private TMP_Text _message;
     [SerializeField] private LevelBuilder _levelBuilder;
     
-    private Ball _ball;
+    private FinishPlatform _finishPlatform;
     
 
     private void Awake()
@@ -19,14 +19,14 @@ public class InformLevelPassed : MonoBehaviour
 
     private void Start()
     {
-        _ball = _levelBuilder.GetBall();
+        _finishPlatform = _levelBuilder.GetFinishPlatform();
         Debug.Log("Подписались");
-        _ball.LevelPassed += OnLevelPassed;
+        _finishPlatform.LevelPassed += OnLevelPassed;
     }
 
     private void OnDisable()
     {
-        _ball.LevelPassed -= OnLevelPassed;
+        _finishPlatform.LevelPassed -= OnLevelPassed;
     }
 
     public void OnLevelPassed()
