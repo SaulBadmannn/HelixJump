@@ -68,7 +68,7 @@
     <Compile Include="Assets\Scripts\Ball\BallBuilder.cs" />
     <Compile Include="Assets\Scripts\Ball\BallJumper.cs" />
     <Compile Include="Assets\Scripts\Ball\BallTracking.cs" />
-    <Compile Include="Assets\Scripts\InformLevelPassed.cs" />
+    <Compile Include="Assets\Scripts\EndCard.cs" />
     <Compile Include="Assets\Scripts\Level.cs" />
     <Compile Include="Assets\Scripts\LevelBuilder.cs" />
     <Compile Include="Assets\Scripts\Platforms\FinishPlatform.cs" />

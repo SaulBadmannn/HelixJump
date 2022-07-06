@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TowerBuilder : MonoBehaviour
 {
+    [SerializeField] private Transform _towerPoint;
     [SerializeField] private int _levelCount;
     [SerializeField] private float _additionalScale;
     [SerializeField] private GameObject _beam;
@@ -12,14 +13,12 @@ public class TowerBuilder : MonoBehaviour
     [SerializeField] private FinishPlatform _templateFinishPlatform;
 
     private float _startAndFinishAdditionalScale = 0.5f;
-    private Transform _spawnPointBall;
-    private FinishPlatform _finishPlatform;
 
     public float BeamScaleY => _levelCount / 2f + _startAndFinishAdditionalScale + _additionalScale / 2f;
 
-    public void BuildTower(Transform towerPoint)
+    public void BuildTower(out Transform spawnPointBall, out FinishPlatform finishPlatform)
     {
-        GameObject beam = Instantiate(_beam, towerPoint);
+        GameObject beam = Instantiate(_beam, _towerPoint);
         beam.transform.localScale = new Vector3(1, BeamScaleY, 1);
 
         Vector3 spawnPosition = beam.transform.position;
@@ -27,14 +26,14 @@ public class TowerBuilder : MonoBehaviour
 
         SpawnPlatform spawnPlatform = SpawnPlatform(_spawnPlatform, ref spawnPosition, beam.transform);
 
-        _spawnPointBall = spawnPlatform.GetSpawnPoint();
+        spawnPointBall = spawnPlatform.GetSpawnPoint();
 
         for (int i = 0; i < _levelCount; i++)
         {
             SpawnPlatform(_platforms[Random.Range(0, _platforms.Length)], ref spawnPosition, beam.transform);
         }
 
-        _finishPlatform = SpawnPlatform(_templateFinishPlatform, ref spawnPosition, beam.transform);
+        finishPlatform = SpawnPlatform(_templateFinishPlatform, ref spawnPosition, beam.transform);
     }
 
     private Platform SpawnPlatform(Platform platform, ref Vector3 spawnPosition, Transform parent)
@@ -59,15 +58,5 @@ public class TowerBuilder : MonoBehaviour
         spawnPosition.y -= 1;
 
         return newPlatform;
-    }
-
-    public Transform GetSpawnPointBall()
-    {
-        return _spawnPointBall;
-    }
-
-    public FinishPlatform GetFinishPlatform()
-    {
-        return _finishPlatform;
     }
 }

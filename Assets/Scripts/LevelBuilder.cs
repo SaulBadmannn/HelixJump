@@ -5,26 +5,15 @@ using TMPro;
 
 public class LevelBuilder : MonoBehaviour
 {
+
     [SerializeField] private TowerBuilder _towerBuilder;
-    [SerializeField] private Transform _towerPoint;
     [SerializeField] private BallBuilder _ballBuilder;
-
-    private Transform _spawnPointBall;
-    private FinishPlatform _finishPlatform;
-
-    private void Awake()
+    
+    public void BuildLevel(out FinishPlatform finishPlatform)
     {
-        _towerBuilder.BuildTower(_towerPoint);
+        Transform spawnPointBall;
 
-        _spawnPointBall = _towerBuilder.GetSpawnPointBall();
-        _finishPlatform = _towerBuilder.GetFinishPlatform();
-
-        _ballBuilder.BuildBall(_spawnPointBall);
+        _towerBuilder.BuildTower(out spawnPointBall, out finishPlatform);
+        _ballBuilder.BuildBall(spawnPointBall);
     }
-
-    public FinishPlatform GetFinishPlatform()
-    {
-        return _finishPlatform;
-    }  
-
 }

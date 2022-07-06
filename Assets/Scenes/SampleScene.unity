@@ -525,7 +525,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _message: {fileID: 796699169}
-  _levelBuilder: {fileID: 944382504}
 --- !u!1 &944382501
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,8 +534,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944382502}
+  - component: {fileID: 944382506}
   - component: {fileID: 944382504}
-  - component: {fileID: 944382503}
   - component: {fileID: 944382505}
   m_Layer: 0
   m_Name: Level
@@ -560,29 +559,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &944382503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944382501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50e01fd862fc60f4fa118bfc344a4e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelCount: 5
-  _additionalScale: 3
-  _beam: {fileID: 3972268632989020406, guid: 15f335a9c48aa9e44acef10e7d1370ba, type: 3}
-  _spawnPlatform: {fileID: 5639938353791775516, guid: 064a3b732397e7d4cbd2fa2655bd8b37,
-    type: 3}
-  _platforms:
-  - {fileID: 5414311671439615706, guid: 2a914dc7e381b6046af88ea71c9a5f67, type: 3}
-  - {fileID: 6933811747659346107, guid: 6bbabd5fe6807ca4dbab67f38c5753b5, type: 3}
-  - {fileID: 7816213795755406301, guid: 4827d975e92126a4481be10b496ad008, type: 3}
-  _templateFinishPlatform: {fileID: 3614505669497872772, guid: 536a5a92fd1cdbf45bbcc547660bbaf2,
-    type: 3}
 --- !u!114 &944382504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -595,8 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aab568a860af1946aa5969df37d0611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _towerBuilder: {fileID: 944382503}
-  _towerPoint: {fileID: 1012767874}
+  _towerBuilder: {fileID: 1012767873}
   _ballBuilder: {fileID: 944382505}
 --- !u!114 &944382505
 MonoBehaviour:
@@ -611,6 +586,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ball: {fileID: -2533377599065419501, guid: 2d772a833e6dd7445b87c9ac5f66de3a, type: 3}
+--- !u!114 &944382506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944382501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100b9a6801835b541907cb4da5c4a44b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelBuilder: {fileID: 944382504}
+  _endCard: {fileID: 796699171}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +710,7 @@ GameObject:
   - component: {fileID: 1012767876}
   - component: {fileID: 1012767875}
   - component: {fileID: 1012767877}
+  - component: {fileID: 1012767873}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -728,6 +718,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1012767873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012767872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e01fd862fc60f4fa118bfc344a4e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _towerPoint: {fileID: 1012767874}
+  _levelCount: 5
+  _additionalScale: 3
+  _beam: {fileID: 3972268632989020406, guid: 15f335a9c48aa9e44acef10e7d1370ba, type: 3}
+  _spawnPlatform: {fileID: 5639938353791775516, guid: 064a3b732397e7d4cbd2fa2655bd8b37,
+    type: 3}
+  _platforms:
+  - {fileID: 5414311671439615706, guid: 2a914dc7e381b6046af88ea71c9a5f67, type: 3}
+  - {fileID: 6933811747659346107, guid: 6bbabd5fe6807ca4dbab67f38c5753b5, type: 3}
+  - {fileID: 7816213795755406301, guid: 4827d975e92126a4481be10b496ad008, type: 3}
+  _templateFinishPlatform: {fileID: 3614505669497872772, guid: 536a5a92fd1cdbf45bbcc547660bbaf2,
+    type: 3}
 --- !u!4 &1012767874
 Transform:
   m_ObjectHideFlags: 0
